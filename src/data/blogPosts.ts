@@ -35,8 +35,8 @@ export const staticBlogPosts: BlogPost[] = [
     slug: 'a350-1000ulr-future-ultra-long-haul-aviation',
     date: '2026-08-01',
     readingTime: '12 min read',
-    image: 'blog/a350-1000ulr-future-ultra-long-haul-aviation/hero.png',
-    imageAlt: 'Illustration of an ultra-long-range twin-engine airliner flying from Australia toward a second sunrise over the curved Earth.',
+    image: 'blog/a350-1000ulr-future-ultra-long-haul-aviation/a350-1000ulr-msn707-hero.jpg',
+    imageAlt: 'Qantas Project Sunrise Airbus A350-1000ULR development aircraft MSN707 climbing during its first flight.',
   },
   {
     title: "When Celebration Stops an Airport: DCA's July 4 Ground Stop and the Network Impact of Planned Airspace Closures",
