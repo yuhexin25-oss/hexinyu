@@ -31,7 +31,7 @@ const routes = [
   tags={['Ultra-Long-Haul', 'Project Sunrise', 'A350-1000ULR', 'Airline Networks', 'Passenger Experience', 'Aviation Sustainability']}
   image={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/hero.png`}
   imageAlt="Illustration of an ultra-long-range twin-engine airliner flying from Australia toward a second sunrise over the curved Earth."
-  imageCredit="Original editorial illustration created for this article"
+  imageNote="Original editorial illustration created for this article. Aircraft, route lines and geography are conceptual and are not intended to reproduce the actual flight track."
 >
   <p class="lead">The A350-1000ULR has shown that a modern airliner can remain airborne for more than 24 hours. But does that mean 20-hour nonstop flights are better for passengers, airlines, aviation networks, and the environment?</p>
 
@@ -43,6 +43,16 @@ const routes = [
   <p>The mission was designed around an operational envelope, not a publicity stopwatch. Airbus wanted to demonstrate a 23-hour block-time capability—parking brake release to parking brake set—to cover Qantas's intended flight time of up to 21 hours 40 minutes plus taxi, holding, and diversion margins. The return flight happened to stay airborne longer because of its route and winds.</p>
   <p>The engineering focus was the additional rear centre tank, which holds 20,900 litres, and the fuel-management architecture that makes it usable. Engineers also measured cabin air-conditioning performance and evaluated the new twin flight-crew rest compartment. The extra tank extends range by roughly 1,000 nautical miles, taking the aircraft toward the nearly 10,000-nautical-mile missions Qantas wants to fly.</p>
   <p>That is a meaningful achievement. It verifies that the aircraft can carry, manage, and safely retain the fuel margins needed for an extreme mission. It does not prove that an airline should schedule 24-hour passenger flights every day. Technical reach is a necessary condition for ultra-long-haul service; it is not the business case.</p>
+  <figure class="article-photo">
+    <img
+      src={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/media/qantas-a350-1000ulr-msn707-first-flight-airbus.jpg`}
+      alt="Qantas Project Sunrise Airbus A350-1000ULR development aircraft MSN707 climbing during its first flight."
+      width="3000"
+      height="2000"
+      loading="lazy"
+    />
+    <figcaption>Qantas Project Sunrise A350-1000ULR development aircraft MSN707 on its first flight. This is the flight-test aircraft later used for the long-range development mission. Photo: Airbus.</figcaption>
+  </figure>
 
   <WorldCupMap
     id="ulh-route-map"
@@ -64,6 +74,16 @@ const routes = [
   <p>Project Sunrise is Qantas's plan to connect Sydney nonstop with London and New York. The name recalls the airline's wartime “Double Sunrise” services across the Indian Ocean, whose occupants saw two sunrises during exceptionally long journeys. The modern version addresses the same geographic fact: Australia sits far from the largest European and North American markets.</p>
   <p>Today, a Sydney–London passenger may connect through Singapore, Dubai, Doha, or another Asian or Gulf hub. A Sydney–New York passenger may change aircraft in Los Angeles or elsewhere in North America. Project Sunrise removes that intermediate airport from selected itineraries.</p>
   <p>It does not eliminate hub-and-spoke aviation. Sydney remains the origin hub, and Qantas will still need Australian feeder traffic to fill 238 seats. London and New York are unusually deep markets with premium demand at both ends. Ultra-long-haul flights selectively bypass hubs on city pairs that can support them; they do not reproduce the connectivity that Singapore, Dubai, Doha, or Los Angeles offers to dozens of smaller destinations. A bypass can reduce transfer traffic and the centrality of an intermediate hub on one path while leaving the wider network intact.</p>
+  <figure class="article-photo">
+    <img
+      src={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/media/singapore-airlines-a350-approach-hexin-yu.jpg`}
+      alt="Singapore Airlines Airbus A350-900 descending with its landing gear extended beneath a cloudy sky."
+      width="1620"
+      height="1080"
+      loading="lazy"
+    />
+    <figcaption>Singapore Airlines Airbus A350-900 on approach. The photograph illustrates the A350 family and Singapore Airlines' established ultra-long-haul context; it is not the aircraft used for Airbus's development flight. Photo by Hexin Yu.</figcaption>
+  </figure>
 
   <h2>Four Hours Saved—But at What Cost?</h2>
   <p>Qantas has promoted a roughly four-hour saving compared with current one-stop journeys. That claim makes more sense at the itinerary level than in the air. A connection adds descent and taxi time, deplaning, terminal walking, security or transfer formalities, a scheduled buffer, baggage handling, another boarding process, and the risk that a late first flight breaks the second. Removing that sequence can reduce both clock time and psychological friction.</p>
@@ -85,6 +105,16 @@ const routes = [
   <p>The production cabin applies that work through purpose-designed lighting scenes, meal timing, exercise guidance, and a Wellbeing Zone between premium economy and economy. These interventions aim to mitigate fatigue and circadian disruption, not eliminate the biological consequences of crossing multiple time zones.</p>
   <p>There is also a capacity question. Can 238 passengers meaningfully use a small wellbeing space during a 20-hour flight, or will it function mainly as a premium branding feature? Its value will depend on access, passenger behavior, turbulence, service routines, and whether economy passengers can move without creating a queue.</p>
   <p>Immobility has more direct health implications. The <a href="https://www.cdc.gov/blood-clots/risk-factors/travel.html">CDC</a> says travel-associated blood clots are generally rare, but risk rises with prolonged immobility and individual factors. Frequent leg movement and walking every one to two hours are practical advice for many travelers; people with elevated risk should seek medical guidance. Hydration and movement help, but neither turns 20 hours in an economy seat into a neutral physiological event.</p>
+  <figure class="article-photo">
+    <img
+      src={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/media/singapore-airlines-a350-underside-hexin-yu.jpg`}
+      alt="Underside view of a Singapore Airlines Airbus A350-900 banking against a clear blue sky."
+      width="1620"
+      height="1080"
+      loading="lazy"
+    />
+    <figcaption>Underside view of a Singapore Airlines Airbus A350-900 in regular operation. It is an illustrative A350-family photograph, not a Project Sunrise aircraft. Photo by Hexin Yu.</figcaption>
+  </figure>
 
   <h2>The Crew Fatigue Problem</h2>
   <p>Passenger discomfort is a product issue; crew alertness is a safety system. Ultra-long-range operations require augmented crews, protected rest opportunities, and a Fatigue Risk Management System (FRMS) that treats fatigue as a measurable operational hazard. ICAO describes FRMS as a data-driven process grounded in science and experience, and its ULR guidance recommends a fully augmented flight crew with planned in-flight rest.</p>
@@ -92,13 +122,24 @@ const routes = [
   <p>The difficult moment is not hour ten at cruise. It is a complex arrival after rest that may have been short, fragmented, or mistimed against the body clock. ICAO notes continuing scientific uncertainty around very long duty periods. In ultra-long-haul aviation, fuel capacity may no longer be the primary constraint. The quality of human sleep may be.</p>
 
   <h2>Why the Aircraft Has Only 238 Seats</h2>
-  <p>Airbus markets the standard A350-1000 with a typical two-class capacity around 375 passengers, although actual airline layouts vary. Qantas will install only 238: six First suites, 52 Business seats, 40 Premium Economy seats, and 140 Economy seats, plus the Wellbeing Zone. That is less a spacious version of a normal layout than a different revenue machine.</p>
+  <p>Airbus currently lists the standard A350-1000 at approximately 350–410 seats in a typical three-class configuration, although actual airline layouts vary. Qantas will install only 238 seats on its Project Sunrise aircraft: six First suites, 52 Business seats, 40 Premium Economy seats, and 140 Economy seats, plus the Wellbeing Zone. That is less a spacious version of a normal layout than a different revenue machine.</p>
+  <figure class="article-photo">
+    <img
+      src={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/media/qantas-project-sunrise-a350-assembly-official.jpg`}
+      alt="Unpainted Qantas Project Sunrise A350-1000ULR airframe outside the Airbus assembly facility in Toulouse."
+      width="1518"
+      height="1012"
+      loading="lazy"
+    />
+    <figcaption>The first Project Sunrise A350-1000ULR airframe during assembly in Toulouse, before engines, the commercial cabin, and final Qantas paint were installed. Official image released by Qantas and Airbus, November 2025.</figcaption>
+  </figure>
   <figure class="seat-chart" aria-labelledby="seat-title">
     <div class="chart-heading"><strong id="seat-title">Low density is part of the business model</strong><span>published seats</span></div>
     <div class="seat-total"><b>Project Sunrise A350-1000ULR</b><strong>238</strong></div>
     <div class="cabin-strip" aria-label="Project Sunrise seat mix"><span class="first" style="flex:6">6 First</span><span class="business" style="flex:52">52 Business</span><span class="premium" style="flex:40">40 Premium Economy</span><span class="economy" style="flex:140">140 Economy</span></div>
-    <div class="seat-total comparison-total"><b>Airbus typical A350-1000, two class</b><strong>~375</strong></div>
-    <figcaption>Qantas cabin counts are fixed for the announced Project Sunrise layout. The Airbus figure is a manufacturer “typical” reference, not a universal airline configuration. The ULR also carries an additional fuel tank, crew-rest facilities, and a non-seat wellbeing area.</figcaption>
+    <div class="seat-total comparison-total"><b>Airbus standard A350-1000</b><strong>350–410 <small>typical three-class seats</small></strong></div>
+    <div class="seat-range" aria-label="Airbus typical three-class seating range from 350 to 410 seats"><span></span><i>350</i><i>410</i></div>
+    <figcaption>Qantas cabin counts are fixed for the announced Project Sunrise layout. The Airbus range is a manufacturer typical three-class reference, not a universal airline configuration. The ULR also carries an additional fuel tank, crew-rest facilities, and a non-seat wellbeing area.</figcaption>
   </figure>
   <p>Fuel carried for the final hours must itself be transported through the earlier hours. Extra fuel raises takeoff weight and competes with passengers and cargo for payload. A lighter, lower-density cabin protects range, but fewer seats mean the airline must earn more from each one. The 98 premium-cabin seats are therefore not incidental.</p>
   <p>Project Sunrise is not simply a longer flight. It is a premium business model built around the monetary value of time. Its exposure follows from that choice: premium demand can weaken, fuel prices and headwinds can rise, cargo may be constrained, and especially difficult days may require payload management. Meanwhile, one-stop competitors can spread passengers across larger networks and undercut the nonstop fare.</p>
@@ -123,6 +164,7 @@ const routes = [
     <ul class="reference-list">
       <li><a href="https://www.airbus.com/en/newsroom/stories/2026-07-extending-the-horizon-inside-the-a350-1000ulrs-longest-development-flight">Extending the horizon: Inside the A350-1000ULR's longest development flight</a> — Airbus, July 28, 2026 (official).</li>
       <li><a href="https://www.airbus.com/en/newsroom/press-releases/2026-06-worlds-longest-range-aircraft-the-airbus-a350-1000ulr-takes-to-the-skies">The A350-1000ULR takes to the skies</a> — Airbus, June 2, 2026 (official).</li>
+      <li><a href="https://www.airbus.com/en/products-services/commercial-aircraft/passenger-aircraft/a350-family">A350 Family</a> — Airbus (official aircraft-family specifications, accessed August 2026).</li>
       <li><a href="https://agencyconnect.qantas.com/en/news/june-2026/onboard-experience-with-project-sunrise">Reimagining the long-haul travel onboard experience with Project Sunrise</a> — Qantas, June 19, 2026 (official).</li>
       <li><a href="https://www.qantas.com/content/dam/qac/products-and-network/project-sunrise-fact-sheet.pdf">Project Sunrise fact sheet</a> — Qantas, June 2026 (official).</li>
     </ul>
@@ -145,13 +187,22 @@ const routes = [
     <h3>Environmental analysis</h3>
     <ul class="reference-list">
       <li><a href="https://theicct.org/publication/co2-emissions-from-commercial-aviation-2018/">CO₂ emissions from commercial aviation, 2018</a> — International Council on Clean Transportation, 2020 (research report and methodology).</li>
+      <li><a href="https://theicct.org/sites/default/files/publications/variation-aviation-emissions-itinerary-jul2021.pdf">Variation in Aviation Emissions by Itinerary: The Case for Emissions Disclosure</a> — International Council on Clean Transportation, July 2021 (working paper).</li>
       <li><a href="https://theicct.org/wp-content/uploads/2022/06/Aviation-2050-Report-A4-v6.pdf">Vision 2050: Aligning Aviation with the Paris Agreement</a> — ICCT, June 2022 (research report).</li>
     </ul>
     <h3>Media reporting</h3>
     <ul class="reference-list">
       <li><a href="https://arstechnica.com/gadgets/2026/07/new-airliner-sets-record-flying-24-hrs-nonstop-from-australia-to-france/">New airliner sets record flying 24+ hrs nonstop from Australia to France</a> — Ars Technica, July 2026 (news report).</li>
-      <li><a href="https://www.sahmcapital.com/news/content/update-1-qantas-picks-london-for-first-record-breaking-non-stop-flights-2026-06-17">Qantas picks London for first record-breaking non-stop flights</a> — Reuters, June 17, 2026 (news report, syndicated copy).</li>
+      <li><a href="https://www.reuters.com/business/aerospace-defense/qantas-announce-first-route-ultra-long-haul-project-sunrise-flights-2026-06-16/">Qantas picks London for first record-breaking non-stop flights</a> — Reuters, June 17, 2026 (news report).</li>
+      <li><a href="https://www.reuters.com/business/aerospace-defense/airbus-a350-jet-flies-24-hours-nonstop-australia-france-2026-07-28/">Airbus A350 jet flies 24 hours nonstop from Australia to France</a> — Reuters, July 28, 2026 (news report).</li>
       <li><a href="https://www.bilibili.com/video/BV15rKP6pETK/">Bilibili aviation video supplied with the article brief</a> — used as topic inspiration only; no unverified claims or transcript-derived data are cited.</li>
+    </ul>
+    <h3>Image credits</h3>
+    <ul class="reference-list">
+      <li>Singapore Airlines Airbus A350-900 on approach and underside view — photographs by Hexin Yu; original photographs used with the photographer's permission.</li>
+      <li><a href="https://www.airbus.com/en/newsroom/press-releases/2026-06-worlds-longest-range-aircraft-the-airbus-a350-1000ulr-takes-to-the-skies">First flight of the Qantas A350-1000ULR (MSN707)</a> — Airbus, June 2, 2026; official Airbus Media Centre press asset, credited © Airbus and used editorially under the Media Centre disclaimer.</li>
+      <li><a href="https://agencyconnect.qantas.com/en-eu/news/nov-2025/project-sunrise-aircraft">First Project Sunrise aircraft taking shape</a> — Qantas and Airbus, November 10, 2025; official newsroom image, no individual photographer listed, used editorially with source attribution.</li>
+      <li>Article hero — original generated editorial illustration; aircraft, route lines, and geography are conceptual.</li>
     </ul>
   </div>
 
@@ -165,8 +216,9 @@ const routes = [
 
 <style is:global>
   .route-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:-28px 0 40px;color:#5d6877;font-size:.75rem}.route-legend span{display:flex;align-items:center;gap:7px}.route-legend i{width:22px;height:3px;border-radius:3px;background:#527ca8}.route-legend .test{background:#d99a2b}.route-legend .existing{background:#4f8a63}.route-legend .connecting{background:#8b6f9b}
+  .article-photo{overflow:hidden;border:1px solid var(--border);border-radius:18px;background:#fff}.blog-prose .article-photo img{width:100%;height:auto;border-radius:0;object-fit:cover}.article-photo figcaption{margin:0!important;padding:13px 16px;color:#687385!important;font-size:.76rem!important;line-height:1.55!important}
   .duration-chart,.seat-chart{overflow:hidden;border:1px solid var(--border);border-radius:18px;background:#fff;padding:0 20px 20px}.chart-heading{display:flex;justify-content:space-between;gap:18px;margin:0 -20px 20px;padding:15px 20px;background:#172033;color:#fff}.chart-heading span{color:#f6c76f;font-size:.75rem;text-transform:uppercase}.bar-row{display:grid;grid-template-columns:minmax(170px,1fr) 1.35fr minmax(145px,.8fr);align-items:center;gap:12px;padding:10px 0;border-top:1px solid #eef0f2}.bar-row:first-of-type{border-top:0}.bar-row b,.bar-row em{font-size:.76rem}.bar-row em{color:#697386;font-style:normal}.bar-row>div{height:14px;border-radius:999px;background:#edf1f5}.bar-row span{display:block;height:100%;border-radius:999px;background:#527ca8}.bar-row:first-of-type span{background:#d99a2b}.bar-row.journey span{background:#8b6f9b}.duration-chart figcaption,.seat-chart figcaption{margin-top:16px!important}
-  .seat-total{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin:8px 0 12px}.seat-total strong{font-size:1.8rem}.cabin-strip{display:flex;min-height:58px;overflow:hidden;border-radius:10px}.cabin-strip span{display:grid;min-width:48px;place-items:center;padding:6px;color:#fff;font-size:.68rem;font-weight:750;text-align:center}.first{background:#815d35}.business{background:#34567c}.premium{background:#568375}.economy{background:#8b9caf}.comparison-total{margin-top:24px;border-top:1px solid var(--border);padding-top:18px}
+  .seat-total{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin:8px 0 12px}.seat-total strong{font-size:1.8rem;text-align:right}.seat-total strong small{display:block;color:#697386;font-size:.68rem;font-weight:650}.cabin-strip{display:flex;min-height:58px;overflow:hidden;border-radius:10px}.cabin-strip span{display:grid;min-width:48px;place-items:center;padding:6px;color:#fff;font-size:.68rem;font-weight:750;text-align:center}.first{background:#815d35}.business{background:#34567c}.premium{background:#568375}.economy{background:#8b9caf}.comparison-total{margin-top:24px;border-top:1px solid var(--border);padding-top:18px}.seat-range{position:relative;display:grid;grid-template-columns:1fr 1fr;margin:8px 0 20px;padding-top:14px;color:#697386;font-size:.68rem}.seat-range span{position:absolute;top:0;left:0;width:100%;height:8px;border-radius:999px;background:linear-gradient(90deg,#d9e1ea 0 85.4%,#527ca8 85.4% 100%)}.seat-range i{font-style:normal}.seat-range i:last-child{text-align:right}
   .tradeoff{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:38px 0;border:1px solid #31405d;border-radius:18px;background:#172033;padding:22px}.tradeoff span{border:1px solid #425474;border-radius:999px;background:#202d48;padding:8px 12px;color:#fff;font-size:.74rem;font-weight:750}.tradeoff i{color:#f6c76f;font-style:normal}.source-groups h3{margin-top:28px}.source-groups .reference-list{margin-top:10px}.related-work{display:grid;grid-template-columns:1fr 1fr;gap:14px}.related-work a,.post-navigation a{display:grid;gap:8px;border:1px solid var(--border);border-radius:15px;background:#fff;padding:18px;color:var(--text)}.related-work a:hover,.post-navigation a:hover{border-color:var(--border-strong);text-decoration:none}.related-work span{color:#64748b;font-size:.84rem;line-height:1.55}.post-navigation{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}.post-navigation small{color:var(--gold-dark);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-  @media(max-width:680px){.bar-row{grid-template-columns:1fr}.bar-row>div{order:3}.related-work,.post-navigation{grid-template-columns:1fr}.cabin-strip{display:grid;grid-template-columns:1fr 1fr}.cabin-strip span{min-height:48px}.tradeoff{justify-content:flex-start}.route-legend{margin-top:-20px}}
+  @media(max-width:680px){.bar-row{grid-template-columns:1fr}.bar-row>div{order:3}.related-work,.post-navigation{grid-template-columns:1fr}.cabin-strip{display:grid;grid-template-columns:1fr 1fr}.cabin-strip span{min-height:48px}.seat-total{display:grid;gap:5px}.seat-total strong{text-align:left;font-size:1.45rem}.tradeoff{justify-content:flex-start}.route-legend{margin-top:-20px}.article-photo{border-radius:14px}.article-photo figcaption{padding:11px 13px}}
 </style>
