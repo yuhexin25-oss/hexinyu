@@ -1,0 +1,172 @@
+---
+import BlogArticle from '../../components/BlogArticle.astro';
+import WorldCupMap from '../../components/WorldCupMap.astro';
+
+const base = import.meta.env.BASE_URL;
+const airports = [
+  { label: 'MEL', detail: 'Melbourne · development-flight origin', lat: -37.67, lon: 144.84, color: '#d99a2b', size: 7 },
+  { label: 'TLS', detail: 'Toulouse · development-flight destination', lat: 43.63, lon: 1.37, color: '#d99a2b', size: 7 },
+  { label: 'SYD', detail: 'Sydney · Project Sunrise origin', lat: -33.94, lon: 151.18, color: '#527ca8', size: 8 },
+  { label: 'LHR', detail: 'London Heathrow · planned nonstop destination', lat: 51.47, lon: -0.45, color: '#527ca8', size: 7 },
+  { label: 'JFK', detail: 'New York JFK · planned nonstop destination and existing ULH endpoint', lat: 40.64, lon: -73.78, color: '#527ca8', size: 7 },
+  { label: 'SIN', detail: 'Singapore · existing ULH origin and traditional connection', lat: 1.36, lon: 103.99, color: '#4f8a63', size: 7 },
+  { label: 'LAX', detail: 'Los Angeles · traditional connection example', lat: 33.94, lon: -118.41, color: '#8b6f9b', size: 7 },
+];
+const routes = [
+  { coordinates: [[144.84, -37.67], [170, -25], [-155, 20], [-120, 45], [-45, 58], [1.37, 43.63]], color: '#d99a2b', width: 3 },
+  { coordinates: [[151.18, -33.94], [170, -10], [-165, 25], [-120, 55], [-45, 62], [-0.45, 51.47]], color: '#527ca8', width: 3 },
+  { coordinates: [[151.18, -33.94], [175, -5], [-155, 25], [-110, 45], [-73.78, 40.64]], color: '#527ca8', width: 3 },
+  { coordinates: [[103.99, 1.36], [140, 30], [175, 48], [-140, 58], [-73.78, 40.64]], color: '#4f8a63', width: 2.5 },
+  { coordinates: [[151.18, -33.94], [103.99, 1.36], [-0.45, 51.47]], color: '#8b6f9b', width: 2 },
+  { coordinates: [[151.18, -33.94], [-118.41, 33.94], [-73.78, 40.64]], color: '#8b6f9b', width: 2 },
+];
+---
+
+<BlogArticle
+  title="Two Sunrises, No Stopover: What the A350-1000ULR Means for the Future of Ultra-Long-Haul Aviation"
+  subtitle="A 24-hour test flight proved that the aircraft can do it. The harder question is whether passengers, airline economics and the climate can."
+  category="Aviation Analysis"
+  date="August 1, 2026"
+  readingTime="12 min read"
+  tags={['Ultra-Long-Haul', 'Project Sunrise', 'A350-1000ULR', 'Airline Networks', 'Passenger Experience', 'Aviation Sustainability']}
+  image={`${base}blog/a350-1000ulr-future-ultra-long-haul-aviation/hero.png`}
+  imageAlt="Illustration of an ultra-long-range twin-engine airliner flying from Australia toward a second sunrise over the curved Earth."
+  imageCredit="Original editorial illustration created for this article"
+>
+  <p class="lead">The A350-1000ULR has shown that a modern airliner can remain airborne for more than 24 hours. But does that mean 20-hour nonstop flights are better for passengers, airlines, aviation networks, and the environment?</p>
+
+  <h2>An Entire Day in the Air</h2>
+  <p>In late July, an Airbus test aircraft left Melbourne and crossed the Pacific, North America, and the Atlantic before landing in Toulouse. The journey contained a complete day, a night, and another sunrise. It lasted 24 hours and 24 minutes and covered 12,460 nautical miles, according to <a href="https://www.airbus.com/en/newsroom/stories/2026-07-extending-the-horizon-inside-the-a350-1000ulrs-longest-development-flight">Airbus</a>.</p>
+  <p>What it did not contain was a normal cabin of several hundred fare-paying passengers. MSN707 was a flight-test aircraft carrying pilots and engineers. Airbus classifies the two-part Toulouse–Melbourne mission as a <em>development</em> flight, distinct from a certification flight and further still from a scheduled passenger service. That boundary is essential: the aircraft flew for more than 24 hours, but the world's longest commercial flight did not suddenly become a day long.</p>
+
+  <h2>What the 24-Hour Flight Actually Proved</h2>
+  <p>The mission was designed around an operational envelope, not a publicity stopwatch. Airbus wanted to demonstrate a 23-hour block-time capability—parking brake release to parking brake set—to cover Qantas's intended flight time of up to 21 hours 40 minutes plus taxi, holding, and diversion margins. The return flight happened to stay airborne longer because of its route and winds.</p>
+  <p>The engineering focus was the additional rear centre tank, which holds 20,900 litres, and the fuel-management architecture that makes it usable. Engineers also measured cabin air-conditioning performance and evaluated the new twin flight-crew rest compartment. The extra tank extends range by roughly 1,000 nautical miles, taking the aircraft toward the nearly 10,000-nautical-mile missions Qantas wants to fly.</p>
+  <p>That is a meaningful achievement. It verifies that the aircraft can carry, manage, and safely retain the fuel margins needed for an extreme mission. It does not prove that an airline should schedule 24-hour passenger flights every day. Technical reach is a necessary condition for ultra-long-haul service; it is not the business case.</p>
+
+  <WorldCupMap
+    id="ulh-route-map"
+    title="Ultra-long-haul routes in context"
+    points={airports}
+    lines={routes}
+    center={[20, 18]}
+    zoom={1.1}
+    height="500px"
+    caption="The Melbourne–Toulouse line is an illustrative rendering of Airbus's published route description, not a recorded flight track. Project Sunrise lines are planned; Singapore–New York is an existing scheduled comparison. Purple lines show traditional one-stop examples."
+    source="Author map using airport coordinates and route descriptions from Airbus, Qantas, and published schedules."
+    fallback="Illustrative routes connect Melbourne with Toulouse; Sydney with London and New York; Singapore with New York; and Sydney with London via Singapore or New York via Los Angeles."
+  />
+  <div class="route-legend" aria-label="Route map legend">
+    <span><i class="test"></i>Development test flight</span><span><i class="planned"></i>Planned nonstop</span><span><i class="existing"></i>Existing ultra-long-haul</span><span><i class="connecting"></i>Traditional connection</span>
+  </div>
+
+  <h2>Project Sunrise and the Geography of Isolation</h2>
+  <p>Project Sunrise is Qantas's plan to connect Sydney nonstop with London and New York. The name recalls the airline's wartime “Double Sunrise” services across the Indian Ocean, whose occupants saw two sunrises during exceptionally long journeys. The modern version addresses the same geographic fact: Australia sits far from the largest European and North American markets.</p>
+  <p>Today, a Sydney–London passenger may connect through Singapore, Dubai, Doha, or another Asian or Gulf hub. A Sydney–New York passenger may change aircraft in Los Angeles or elsewhere in North America. Project Sunrise removes that intermediate airport from selected itineraries.</p>
+  <p>It does not eliminate hub-and-spoke aviation. Sydney remains the origin hub, and Qantas will still need Australian feeder traffic to fill 238 seats. London and New York are unusually deep markets with premium demand at both ends. Ultra-long-haul flights selectively bypass hubs on city pairs that can support them; they do not reproduce the connectivity that Singapore, Dubai, Doha, or Los Angeles offers to dozens of smaller destinations. A bypass can reduce transfer traffic and the centrality of an intermediate hub on one path while leaving the wider network intact.</p>
+
+  <h2>Four Hours Saved—But at What Cost?</h2>
+  <p>Qantas has promoted a roughly four-hour saving compared with current one-stop journeys. That claim makes more sense at the itinerary level than in the air. A connection adds descent and taxi time, deplaning, terminal walking, security or transfer formalities, a scheduled buffer, baggage handling, another boarding process, and the risk that a late first flight breaks the second. Removing that sequence can reduce both clock time and psychological friction.</p>
+  <p>For an executive whose time is expensive, four hours and one fewer failure point can justify a substantial fare premium. For a price-sensitive traveler, the stop may be a useful chance to walk, eat, or split the physical burden—and a one-stop fare may remain much cheaper. “Faster” describes the itinerary. It does not settle which experience offers better value.</p>
+
+  <figure class="duration-chart" aria-labelledby="duration-title">
+    <div class="chart-heading"><strong id="duration-title">Duration comparisons need different clocks</strong><span>hours, approximate</span></div>
+    <div class="bar-row"><b>A350 development flight</b><div><span style="width:100%"></span></div><em>24h 24m airborne</em></div>
+    <div class="bar-row"><b>Sydney–London planned</b><div><span style="width:90%"></span></div><em>up to 22h flight</em></div>
+    <div class="bar-row"><b>Sydney–New York planned</b><div><span style="width:82%"></span></div><em>about 20h flight</em></div>
+    <div class="bar-row"><b>Singapore–New York existing</b><div><span style="width:77%"></span></div><em>about 18h 40m scheduled</em></div>
+    <div class="bar-row journey"><b>Sydney–London one-stop example</b><div><span style="width:100%"></span></div><em>about 24h total journey</em></div>
+    <figcaption>Airbus reports an airborne development-flight time; planned Project Sunrise figures describe flight time; schedules use block time; and the one-stop example is elapsed itinerary time. The bars are contextual, not a like-for-like performance ranking. Timetables, direction, winds, and connection length vary.</figcaption>
+  </figure>
+
+  <h2>When the Human Body Becomes the Limiting Factor</h2>
+  <p>A nonstop itinerary eliminates a terminal stop but concentrates the confinement. Crossing many time zones disrupts the circadian system that coordinates sleep, alertness, digestion, and body temperature. The cabin can encourage a new schedule, but it cannot repeal biology.</p>
+  <p>Qantas and the University of Sydney's Charles Perkins Centre tested timed lighting, meals, sleep windows, and movement on three 2019 research flights. The published summary covered only 23 participants. Results—more sleep during dark periods, improved vigilance, and less reported jet lag—were promising, but the university explicitly says they were preliminary, not peer-reviewed, and require larger samples.</p>
+  <p>The production cabin applies that work through purpose-designed lighting scenes, meal timing, exercise guidance, and a Wellbeing Zone between premium economy and economy. These interventions aim to mitigate fatigue and circadian disruption, not eliminate the biological consequences of crossing multiple time zones.</p>
+  <p>There is also a capacity question. Can 238 passengers meaningfully use a small wellbeing space during a 20-hour flight, or will it function mainly as a premium branding feature? Its value will depend on access, passenger behavior, turbulence, service routines, and whether economy passengers can move without creating a queue.</p>
+  <p>Immobility has more direct health implications. The <a href="https://www.cdc.gov/blood-clots/risk-factors/travel.html">CDC</a> says travel-associated blood clots are generally rare, but risk rises with prolonged immobility and individual factors. Frequent leg movement and walking every one to two hours are practical advice for many travelers; people with elevated risk should seek medical guidance. Hydration and movement help, but neither turns 20 hours in an economy seat into a neutral physiological event.</p>
+
+  <h2>The Crew Fatigue Problem</h2>
+  <p>Passenger discomfort is a product issue; crew alertness is a safety system. Ultra-long-range operations require augmented crews, protected rest opportunities, and a Fatigue Risk Management System (FRMS) that treats fatigue as a measurable operational hazard. ICAO describes FRMS as a data-driven process grounded in science and experience, and its ULR guidance recommends a fully augmented flight crew with planned in-flight rest.</p>
+  <p>The Airbus test is informative but should not be mistaken for Qantas's final roster. Five pilots were aboard the Melbourne–Toulouse development leg, including Qantas observers, and they used staggered rotations. Because test instrumentation occupied the dedicated pilot-rest spaces, the pilots slept in the eight-berth cabin-crew rest compartment. A scheduled service will have passengers, cabin crew, commercial duties, and an operator-approved roster.</p>
+  <p>The difficult moment is not hour ten at cruise. It is a complex arrival after rest that may have been short, fragmented, or mistimed against the body clock. ICAO notes continuing scientific uncertainty around very long duty periods. In ultra-long-haul aviation, fuel capacity may no longer be the primary constraint. The quality of human sleep may be.</p>
+
+  <h2>Why the Aircraft Has Only 238 Seats</h2>
+  <p>Airbus markets the standard A350-1000 with a typical two-class capacity around 375 passengers, although actual airline layouts vary. Qantas will install only 238: six First suites, 52 Business seats, 40 Premium Economy seats, and 140 Economy seats, plus the Wellbeing Zone. That is less a spacious version of a normal layout than a different revenue machine.</p>
+  <figure class="seat-chart" aria-labelledby="seat-title">
+    <div class="chart-heading"><strong id="seat-title">Low density is part of the business model</strong><span>published seats</span></div>
+    <div class="seat-total"><b>Project Sunrise A350-1000ULR</b><strong>238</strong></div>
+    <div class="cabin-strip" aria-label="Project Sunrise seat mix"><span class="first" style="flex:6">6 First</span><span class="business" style="flex:52">52 Business</span><span class="premium" style="flex:40">40 Premium Economy</span><span class="economy" style="flex:140">140 Economy</span></div>
+    <div class="seat-total comparison-total"><b>Airbus typical A350-1000, two class</b><strong>~375</strong></div>
+    <figcaption>Qantas cabin counts are fixed for the announced Project Sunrise layout. The Airbus figure is a manufacturer “typical” reference, not a universal airline configuration. The ULR also carries an additional fuel tank, crew-rest facilities, and a non-seat wellbeing area.</figcaption>
+  </figure>
+  <p>Fuel carried for the final hours must itself be transported through the earlier hours. Extra fuel raises takeoff weight and competes with passengers and cargo for payload. A lighter, lower-density cabin protects range, but fewer seats mean the airline must earn more from each one. The 98 premium-cabin seats are therefore not incidental.</p>
+  <p>Project Sunrise is not simply a longer flight. It is a premium business model built around the monetary value of time. Its exposure follows from that choice: premium demand can weaken, fuel prices and headwinds can rise, cargo may be constrained, and especially difficult days may require payload management. Meanwhile, one-stop competitors can spread passengers across larger networks and undercut the nonstop fare.</p>
+
+  <div class="tradeoff" aria-label="Ultra-long-range commercial trade-off">
+    <span>Longer range</span><i>→</i><span>More fuel</span><i>→</i><span>Higher takeoff weight</span><i>→</i><span>Lower payload</span><i>→</i><span>Fewer seats</span><i>→</i><span>Higher required yield</span>
+  </div>
+
+  <h2>The Environmental Paradox</h2>
+  <p>A nonstop can avoid a detour, a second takeoff and climb, and some airport activity. That sounds efficient. Yet extreme range also creates a “fuel to carry fuel” penalty, while a low-density cabin allocates more aircraft mass and floor area to each passenger. Premium seats occupy substantially more space than economy seats, so emissions per passenger are sensitive to the cabin mix as well as the aircraft.</p>
+  <p>The comparison route matters too. A one-stop itinerary using efficient aircraft on well-matched stages may outperform an extreme nonstop per passenger; an indirect itinerary with a large detour, weak load factors, or an older aircraft may not. Cargo changes the allocation. Winds change fuel burn. A seat sold and occupied is different from an empty one.</p>
+  <p>Research on airline fuel efficiency generally finds that efficiency improves with stage length before very long sectors incur a weight penalty. The ICCT's methodology also separates cabin classes because floor-space allocation changes per-passenger results. Without matched operational data for both itineraries, a precise percentage would offer false certainty. A nonstop flight can be time-efficient without necessarily being carbon-efficient.</p>
+
+  <h2>Will Ultra-Long-Haul Become Mainstream?</h2>
+  <p>Project Sunrise is now planned to begin with Sydney–London in October 2027, with Sydney–New York to follow. That timing remains a plan, not a completed launch. The aircraft has demonstrated the physical margin needed to make the proposition credible; Qantas still has to turn that envelope into a repeatable service.</p>
+  <p>More selective hub bypasses will appear as aircraft improve. But the viable map will remain concentrated around geographically isolated origins, major destination cities, strong feeder systems, and enough high-yield demand. Most smaller markets still need hubs, and most price-sensitive travelers will continue to trade time for a cheaper connection.</p>
+  <p>The 24-hour test showed that almost any two major cities can become technically reachable without stopping. The harder question is no longer whether an aircraft can fly that far, but whether passengers, crews, airline economics, and the climate can sustain the journey.</p>
+
+  <h2>Sources and Further Reading</h2>
+  <div class="source-groups">
+    <h3>Airbus and Qantas official sources</h3>
+    <ul class="reference-list">
+      <li><a href="https://www.airbus.com/en/newsroom/stories/2026-07-extending-the-horizon-inside-the-a350-1000ulrs-longest-development-flight">Extending the horizon: Inside the A350-1000ULR's longest development flight</a> — Airbus, July 28, 2026 (official).</li>
+      <li><a href="https://www.airbus.com/en/newsroom/press-releases/2026-06-worlds-longest-range-aircraft-the-airbus-a350-1000ulr-takes-to-the-skies">The A350-1000ULR takes to the skies</a> — Airbus, June 2, 2026 (official).</li>
+      <li><a href="https://agencyconnect.qantas.com/en/news/june-2026/onboard-experience-with-project-sunrise">Reimagining the long-haul travel onboard experience with Project Sunrise</a> — Qantas, June 19, 2026 (official).</li>
+      <li><a href="https://www.qantas.com/content/dam/qac/products-and-network/project-sunrise-fact-sheet.pdf">Project Sunrise fact sheet</a> — Qantas, June 2026 (official).</li>
+    </ul>
+    <h3>Passenger and circadian research</h3>
+    <ul class="reference-list">
+      <li><a href="https://www.sydney.edu.au/content/dam/corporate/documents/charles-perkins-centre/health_and_wellbeing_in_the_air.pdf">Project Sunrise 2019 Test Flights: Research Summary</a> — Charles Perkins Centre, University of Sydney (preliminary study summary).</li>
+      <li><a href="https://www.sydney.edu.au/charles-perkins-centre/our-research/nutrition/qantas-health-and-wellness-in-the-air.html">Qantas partnership: Health and wellness in the air</a> — University of Sydney (research overview).</li>
+      <li><a href="https://www.cdc.gov/blood-clots/risk-factors/travel.html">Understanding Your Risk for Blood Clots with Travel</a> — CDC, May 15, 2024 (public-health guidance).</li>
+    </ul>
+    <h3>Crew fatigue and safety</h3>
+    <ul class="reference-list">
+      <li><a href="https://www.icao.int/cabin-crew-fatigue-management">Cabin Crew Fatigue Management</a> — ICAO (official guidance and FRMS references).</li>
+      <li><a href="https://www.icao.int/operational-safety/flight-ops">Ultra Long Range Operations guidance</a> — ICAO Flight Operations (official operational guidance).</li>
+    </ul>
+    <h3>Airline economics and networks</h3>
+    <ul class="reference-list">
+      <li><a href="https://doi.org/10.1016/j.jairtraman.2020.101901">Ultra Long-Haul: An emerging business model accelerated by COVID-19</a> — Journal of Air Transport Management 89, 2020 (peer-reviewed).</li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7148870/">Regulation, competition and network evolution in aviation</a> — Journal of Transport Geography, 2020 (peer-reviewed).</li>
+    </ul>
+    <h3>Environmental analysis</h3>
+    <ul class="reference-list">
+      <li><a href="https://theicct.org/publication/co2-emissions-from-commercial-aviation-2018/">CO₂ emissions from commercial aviation, 2018</a> — International Council on Clean Transportation, 2020 (research report and methodology).</li>
+      <li><a href="https://theicct.org/wp-content/uploads/2022/06/Aviation-2050-Report-A4-v6.pdf">Vision 2050: Aligning Aviation with the Paris Agreement</a> — ICCT, June 2022 (research report).</li>
+    </ul>
+    <h3>Media reporting</h3>
+    <ul class="reference-list">
+      <li><a href="https://arstechnica.com/gadgets/2026/07/new-airliner-sets-record-flying-24-hrs-nonstop-from-australia-to-france/">New airliner sets record flying 24+ hrs nonstop from Australia to France</a> — Ars Technica, July 2026 (news report).</li>
+      <li><a href="https://www.sahmcapital.com/news/content/update-1-qantas-picks-london-for-first-record-breaking-non-stop-flights-2026-06-17">Qantas picks London for first record-breaking non-stop flights</a> — Reuters, June 17, 2026 (news report, syndicated copy).</li>
+      <li><a href="https://www.bilibili.com/video/BV15rKP6pETK/">Bilibili aviation video supplied with the article brief</a> — used as topic inspiration only; no unverified claims or transcript-derived data are cited.</li>
+    </ul>
+  </div>
+
+  <h2>Related Work</h2>
+  <div class="related-work">
+    <a href="https://yuhexin25.github.io/us-airline-hub-atlas/"><strong>U.S. Airline Hub Atlas</strong><span>Explore how airline-specific hubs shape connectivity and network centrality.</span></a>
+    <a href={`${base}blog/hubs-alliances-world-cup-mobility/`}><strong>Hubs, Alliances, and World Cup Mobility</strong><span>A companion analysis of temporary passenger flows through permanent hub networks.</span></a>
+  </div>
+  <nav class="post-navigation" aria-label="Blog post navigation"><a href={`${base}blog/dca-july-4-ground-stop-network-impact/`}><small>Previous article</small><strong>When Celebration Stops an Airport</strong></a><a href={`${base}blog/`}><small>All writing</small><strong>Return to the Blog</strong></a></nav>
+</BlogArticle>
+
+<style is:global>
+  .route-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:-28px 0 40px;color:#5d6877;font-size:.75rem}.route-legend span{display:flex;align-items:center;gap:7px}.route-legend i{width:22px;height:3px;border-radius:3px;background:#527ca8}.route-legend .test{background:#d99a2b}.route-legend .existing{background:#4f8a63}.route-legend .connecting{background:#8b6f9b}
+  .duration-chart,.seat-chart{overflow:hidden;border:1px solid var(--border);border-radius:18px;background:#fff;padding:0 20px 20px}.chart-heading{display:flex;justify-content:space-between;gap:18px;margin:0 -20px 20px;padding:15px 20px;background:#172033;color:#fff}.chart-heading span{color:#f6c76f;font-size:.75rem;text-transform:uppercase}.bar-row{display:grid;grid-template-columns:minmax(170px,1fr) 1.35fr minmax(145px,.8fr);align-items:center;gap:12px;padding:10px 0;border-top:1px solid #eef0f2}.bar-row:first-of-type{border-top:0}.bar-row b,.bar-row em{font-size:.76rem}.bar-row em{color:#697386;font-style:normal}.bar-row>div{height:14px;border-radius:999px;background:#edf1f5}.bar-row span{display:block;height:100%;border-radius:999px;background:#527ca8}.bar-row:first-of-type span{background:#d99a2b}.bar-row.journey span{background:#8b6f9b}.duration-chart figcaption,.seat-chart figcaption{margin-top:16px!important}
+  .seat-total{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin:8px 0 12px}.seat-total strong{font-size:1.8rem}.cabin-strip{display:flex;min-height:58px;overflow:hidden;border-radius:10px}.cabin-strip span{display:grid;min-width:48px;place-items:center;padding:6px;color:#fff;font-size:.68rem;font-weight:750;text-align:center}.first{background:#815d35}.business{background:#34567c}.premium{background:#568375}.economy{background:#8b9caf}.comparison-total{margin-top:24px;border-top:1px solid var(--border);padding-top:18px}
+  .tradeoff{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:38px 0;border:1px solid #31405d;border-radius:18px;background:#172033;padding:22px}.tradeoff span{border:1px solid #425474;border-radius:999px;background:#202d48;padding:8px 12px;color:#fff;font-size:.74rem;font-weight:750}.tradeoff i{color:#f6c76f;font-style:normal}.source-groups h3{margin-top:28px}.source-groups .reference-list{margin-top:10px}.related-work{display:grid;grid-template-columns:1fr 1fr;gap:14px}.related-work a,.post-navigation a{display:grid;gap:8px;border:1px solid var(--border);border-radius:15px;background:#fff;padding:18px;color:var(--text)}.related-work a:hover,.post-navigation a:hover{border-color:var(--border-strong);text-decoration:none}.related-work span{color:#64748b;font-size:.84rem;line-height:1.55}.post-navigation{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}.post-navigation small{color:var(--gold-dark);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  @media(max-width:680px){.bar-row{grid-template-columns:1fr}.bar-row>div{order:3}.related-work,.post-navigation{grid-template-columns:1fr}.cabin-strip{display:grid;grid-template-columns:1fr 1fr}.cabin-strip span{min-height:48px}.tradeoff{justify-content:flex-start}.route-legend{margin-top:-20px}}
+</style>

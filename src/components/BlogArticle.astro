@@ -38,6 +38,13 @@ const base = import.meta.env.BASE_URL;
   </article>
 </Layout>
 
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.blog-prose a[href^="http"]').forEach((link) => {
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
+</script>
+
 <style is:global>
   .blog-hero{position:relative;display:flex;min-height:clamp(460px,64vh,610px);align-items:end;overflow:hidden;background:#172033}.blog-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.blog-hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,20,37,.18),rgba(12,20,37,.9) 86%)}.blog-hero-credit{position:absolute;right:clamp(14px,3vw,30px);bottom:clamp(12px,2vw,20px);z-index:2;margin:0;border-radius:999px;background:rgba(15,23,42,.48);padding:6px 10px;color:#dbe6f7;font-family:inherit;font-size:.72rem;line-height:1;backdrop-filter:blur(6px)}.blog-hero-copy{position:relative;z-index:1;padding-block:clamp(70px,9vw,96px) clamp(46px,7vw,64px)}.blog-hero-copy>a{display:inline-block;margin-bottom:clamp(28px,5vw,46px);color:#dbeafe;font-weight:700}.blog-category{margin-bottom:14px;color:#f6c76f;font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.blog-hero h1{max-width:980px;color:#fff;font-size:clamp(2.35rem,6vw,5.5rem);overflow-wrap:anywhere}.blog-subtitle{max-width:800px;margin-top:20px;color:#dbe6f7;font-size:clamp(1rem,2vw,1.4rem);line-height:1.6}.blog-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:28px;color:#b9c7dc;font-size:.88rem}
   .blog-layout{display:grid;grid-template-columns:minmax(140px,170px) minmax(0,780px);justify-content:center;gap:clamp(30px,5vw,58px);padding-block:clamp(50px,7vw,72px) clamp(78px,9vw,104px)}.blog-layout>aside{position:sticky;top:110px;align-self:start;min-width:0}.blog-layout>aside>p{margin-bottom:12px;color:var(--gold-dark);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.blog-layout>aside>div{display:flex;flex-wrap:wrap;gap:7px}.blog-layout>aside span{border:1px solid var(--border);border-radius:999px;background:#fff;padding:5px 9px;color:#665d52;font-size:.72rem}

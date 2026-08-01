@@ -28,6 +28,17 @@ type ContentBlogEntry = {
 
 export const staticBlogPosts: BlogPost[] = [
   {
+    title: 'Two Sunrises, No Stopover: What the A350-1000ULR Means for the Future of Ultra-Long-Haul Aviation',
+    category: 'Aviation Analysis',
+    description:
+      'A 24-hour test flight proved that the aircraft can do it. The harder question is whether passengers, airline economics and the climate can.',
+    slug: 'a350-1000ulr-future-ultra-long-haul-aviation',
+    date: '2026-08-01',
+    readingTime: '12 min read',
+    image: 'blog/a350-1000ulr-future-ultra-long-haul-aviation/hero.png',
+    imageAlt: 'Illustration of an ultra-long-range twin-engine airliner flying from Australia toward a second sunrise over the curved Earth.',
+  },
+  {
     title: "When Celebration Stops an Airport: DCA's July 4 Ground Stop and the Network Impact of Planned Airspace Closures",
     category: 'Airport Operations',
     description:
