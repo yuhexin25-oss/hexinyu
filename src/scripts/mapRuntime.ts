@@ -47,13 +47,66 @@ function pointCollection(points: any[]) {
   };
 }
 
+function greatCircleSegment(start: [number, number], end: [number, number], steps = 48) {
+  const toRadians = (value: number) => value * Math.PI / 180;
+  const toDegrees = (value: number) => value * 180 / Math.PI;
+  const [startLon, startLat] = start.map(toRadians);
+  const [endLon, endLat] = end.map(toRadians);
+  const angularDistance = 2 * Math.asin(Math.sqrt(
+    Math.sin((endLat - startLat) / 2) ** 2
+    + Math.cos(startLat) * Math.cos(endLat) * Math.sin((endLon - startLon) / 2) ** 2,
+  ));
+
+  if (angularDistance === 0) return [start];
+
+  const coordinates: [number, number][] = [];
+  for (let index = 0; index <= steps; index += 1) {
+    const fraction = index / steps;
+    const startWeight = Math.sin((1 - fraction) * angularDistance) / Math.sin(angularDistance);
+    const endWeight = Math.sin(fraction * angularDistance) / Math.sin(angularDistance);
+    const x = startWeight * Math.cos(startLat) * Math.cos(startLon) + endWeight * Math.cos(endLat) * Math.cos(endLon);
+    const y = startWeight * Math.cos(startLat) * Math.sin(startLon) + endWeight * Math.cos(endLat) * Math.sin(endLon);
+    const z = startWeight * Math.sin(startLat) + endWeight * Math.sin(endLat);
+    let longitude = toDegrees(Math.atan2(y, x));
+    const latitude = toDegrees(Math.atan2(z, Math.sqrt(x ** 2 + y ** 2)));
+
+    const previousLongitude = coordinates.at(-1)?.[0];
+    if (previousLongitude !== undefined) {
+      while (longitude - previousLongitude > 180) longitude -= 360;
+      while (longitude - previousLongitude < -180) longitude += 360;
+    }
+    coordinates.push([longitude, latitude]);
+  }
+  return coordinates;
+}
+
+function geodesicCoordinates(coordinates: [number, number][]) {
+  const interpolated = coordinates.slice(0, -1).flatMap((coordinate, index) => {
+    const segment = greatCircleSegment(coordinate, coordinates[index + 1]);
+    return index === 0 ? segment : segment.slice(1);
+  });
+  return interpolated.map(([rawLongitude, latitude], index) => {
+    let longitude = rawLongitude;
+    const previousLongitude = index > 0 ? interpolated[index - 1][0] : undefined;
+    if (previousLongitude !== undefined) {
+      while (longitude - previousLongitude > 180) longitude -= 360;
+      while (longitude - previousLongitude < -180) longitude += 360;
+      interpolated[index][0] = longitude;
+    }
+    return [longitude, latitude] as [number, number];
+  });
+}
+
 function lineCollection(lines: any[]) {
   return {
     type: 'FeatureCollection' as const,
     features: lines.map((line) => ({
       type: 'Feature' as const,
       properties: { color: line.color ?? '#527ca8', width: line.width ?? 2 },
-      geometry: { type: 'LineString' as const, coordinates: line.coordinates },
+      geometry: {
+        type: 'LineString' as const,
+        coordinates: line.geodesic ? geodesicCoordinates(line.coordinates) : line.coordinates,
+      },
     })),
   };
 }
